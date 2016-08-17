@@ -1,0 +1,17 @@
+{
+  "name": "cp-template",
+  "version": "1.0.0",
+  "description": "cp -r for templates",
+  "main": "index.js",
+  "author": "Tzvi Melamed",
+  "preferGlobal": true,
+  "bin": {
+    "cp-template": "./bin/index.js"
+  },
+  "repository": "Omniroot/cp-template",
+  "dependencies": {
+    "commander": "^2.9.0",
+    "fs-extra": "^0.30.0",
+    "replacestream": "^4.0.0"
+  }
+}
