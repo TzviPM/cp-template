@@ -8,7 +8,20 @@ importers:
 
   .: {}
 
-  packages/cp-template:
+  packages/core:
+    devDependencies:
+      typescript:
+        specifier: ^5.6.3
+        version: 5.6.3
+
+  packages/vscode-cp-template:
+    dependencies:
+      '@cp-template/core':
+        specifier: workspace:^
+        version: link:../core
+      fast-glob:
+        specifier: ^3.3.2
+        version: 3.3.2
     devDependencies:
       '@types/mocha':
         specifier: ^10.0.9

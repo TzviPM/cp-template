@@ -1,0 +1,132 @@
+{
+  "name": "vscode-cp-template",
+  "displayName": "cp-template",
+  "description": "Make anything into a template like cp on steroids",
+  "version": "0.0.1",
+  "publisher": "TzviPM",
+  "engines": {
+    "vscode": "^1.95.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:cp-template.duplicateFile"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "cp-template.duplicateFile",
+        "category": "cp-template",
+        "title": "Duplicate (template)..."
+      }
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "command": "cp-template.duplicateFile",
+          "group": "7_modification",
+          "when": "config.cp-template.menus.context.explorer =~ /duplicateFile/"
+        }
+      ],
+      "editor/context": [
+        {
+          "command": "cp-template.duplicateFile",
+          "group": "1_modification@3",
+          "when": "config.cp-template.menus.context.editor =~ /duplicateFile/ && resourceScheme != output"
+        }
+      ],
+      "editor/title/context": [
+        {
+          "command": "cp-template.duplicateFile",
+          "group": "1_modification@3",
+          "when": "config.cp-template.menus.context.editorTitle =~ /duplicateFile/"
+        }
+      ]
+    },
+    "configuration": {
+      "type": "object",
+      "title": "cp-template",
+      "properties": {
+        "cp-template.menus.context.explorer": {
+          "type": "array",
+          "default": [
+            "duplicateFile"
+          ],
+          "items": {
+            "type": "string",
+            "enum": [
+              "duplicateFile"
+            ],
+            "enumDescriptions": [
+              "Duplicate (template)"
+            ]
+          },
+          "uniqueItems": true,
+          "order": 90,
+          "description": "Controls whether to show the command in the explorer context menu."
+        },
+        "cp-template.menus.context.editor": {
+          "type": "array",
+          "default": [
+            "duplicateFile"
+          ],
+          "items": {
+            "type": "string",
+            "enum": [
+              "duplicateFile"
+            ],
+            "enumDescriptions": [
+              "Duplicate (template)"
+            ]
+          },
+          "uniqueItems": true,
+          "order": 100,
+          "description": "Controls whether to show the command in the editor context menu."
+        },
+        "cp-template.menus.context.editorTitle": {
+          "type": "array",
+          "default": [
+            "duplicateFile"
+          ],
+          "items": {
+            "type": "string",
+            "enum": [
+              "duplicateFile"
+            ],
+            "enumDescriptions": [
+              "Duplicate (template)"
+            ]
+          },
+          "uniqueItems": true,
+          "order": 110,
+          "description": "Controls whether to show the command in the editor title context menu."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "pnpm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "pnpm run compile && pnpm run lint",
+    "lint": "eslint src",
+    "test": "vscode-test"
+  },
+  "dependencies": {
+    "fast-glob": "^3.3.2",
+    "@cp-template/core": "workspace:^"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.95.0",
+    "@types/mocha": "^10.0.9",
+    "@types/node": "20.x",
+    "@typescript-eslint/eslint-plugin": "^8.10.0",
+    "@typescript-eslint/parser": "^8.7.0",
+    "eslint": "^9.13.0",
+    "typescript": "^5.6.3",
+    "@vscode/test-cli": "^0.0.10",
+    "@vscode/test-electron": "^2.4.1"
+  }
+}
