@@ -1,4 +1,7 @@
 {
   "name": "@cp-template/source",
-  "private": true
+  "private": true,
+  "scripts": {
+    "watch": "pnpm run --parallel watch"
+  }
 }
