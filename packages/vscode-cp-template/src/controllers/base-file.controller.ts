@@ -157,7 +157,8 @@ export abstract class BaseFileController implements FileController {
     }
 
     protected async ensureWritableFile(fileItem: VsCodeFileItem): Promise<VsCodeFileItem> {
-        if (!await this.fs.exists(fileItem.loc.raw)) {
+        const targetExists = fileItem.targetLoc && await this.fs.exists(fileItem.targetLoc.raw);
+        if (!targetExists) {
             return fileItem;
         }
 
@@ -165,7 +166,7 @@ export abstract class BaseFileController implements FileController {
             throw new Error("Missing target path");
         }
 
-        const message = `File '${fileItem.name}' already exists.`;
+        const message = `File '${fileItem.targetLoc.raw.path}' already exists.`;
         const action = "Overwrite";
         const overwrite = await window.showInformationMessage(message, { modal: true }, action);
         if (overwrite) {
