@@ -1,6 +1,7 @@
 {
   "name": "@cp-template/core",
   "main": "./out/index.js",
+  "license": "MIT",
   "types": "./out/index.d.ts",
   "scripts": {
     "compile": "tsc -p ./",
