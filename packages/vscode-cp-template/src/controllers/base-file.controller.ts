@@ -156,6 +156,13 @@ export abstract class BaseFileController implements FileController {
         return new Cache(this.context.globalState, namespace);
     }
 
+    protected async shouldOverwrite(location: Uri): Promise<boolean> {
+        const message = `File '${location.path}' already exists.`;
+        const action = "Overwrite";
+        const overwrite = await window.showInformationMessage(message, { modal: true }, action);
+        return Boolean(overwrite);
+    }
+
     protected async ensureWritableFile(fileItem: VsCodeFileItem): Promise<VsCodeFileItem> {
         const targetExists = fileItem.targetLoc && await this.fs.exists(fileItem.targetLoc.raw);
         if (!targetExists) {

@@ -9,6 +9,8 @@ export interface DialogOptions {
 
 export interface ExecuteOptions {
     fileItem: VsCodeFileItem;
+    templateText?: string;
+    replacementText?: string;
 }
 
 export interface SourcePathOptions {

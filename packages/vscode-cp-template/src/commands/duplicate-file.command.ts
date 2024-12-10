@@ -7,6 +7,8 @@ export class DuplicateFileCommand extends BaseCommand<DuplicateFileController> {
     public async execute(uri?: Uri): Promise<void> {
         const dialogOptions = { prompt: "Duplicate As", uri, typeahead: false };
         const fileItem = await this.controller.showDialog(dialogOptions);
-        await this.executeController(fileItem, { openFileInEditor: !fileItem?.isDir });
+        const templateText = await this.controller.getTemplateText();
+        const replacementText = await this.controller.getReplacementText();
+        await this.executeController(fileItem && {fileItem, templateText, replacementText}, { openFileInEditor: !fileItem?.isDir });
     }
 }

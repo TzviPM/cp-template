@@ -1,6 +1,5 @@
 import { Uri } from "vscode";
-import { FileController } from "../controllers/controller.interface";
-import { VsCodeFileItem } from "../core/file-item";
+import { ExecuteOptions, FileController } from "../controllers/controller.interface";
 import { CommandConstructorOptions, Command } from "./command.interface";
 
 interface ExecuteControllerOptions {
@@ -13,11 +12,11 @@ export abstract class BaseCommand<T extends FileController> implements Command {
     public abstract execute(uri?: Uri): Promise<void>;
 
     protected async executeController(
-        fileItem: VsCodeFileItem | undefined,
+        executeOpts: ExecuteOptions | undefined,
         options?: ExecuteControllerOptions
     ): Promise<void> {
-        if (fileItem) {
-            const result = await this.controller.execute({ fileItem });
+        if (executeOpts) {
+            const result = await this.controller.execute(executeOpts);
             if (options?.openFileInEditor) {
                 await this.controller.openFileInEditor(result);
             }

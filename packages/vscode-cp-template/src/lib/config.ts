@@ -1,5 +1,5 @@
 import { workspace } from "vscode";
 
 export function getConfiguration<T>(key: string): T | undefined {
-    return workspace.getConfiguration("fileutils", null).get(key);
+    return workspace.getConfiguration("cp-template", null).get(key);
 }

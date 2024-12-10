@@ -1,5 +1,5 @@
 import * as path from "path";
-import { FileType, Uri, workspace } from "vscode";
+import { FileType, Uri, window, workspace } from "vscode";
 import { BaseFileController, TargetPathInputBoxValueOptions } from "./base-file.controller";
 import { DialogOptions, ExecuteOptions } from "./controller.interface";
 import { vsCodeFileItemFactory, VsCodeFileItem } from "../core/file-item";
@@ -20,6 +20,28 @@ export class MoveFileController extends BaseFileController {
             const isDir = (await workspace.fs.stat(Uri.file(sourcePath))).type === FileType.Directory;
             return new VsCodeFileItem(sourcePath, targetPath, isDir);
         }
+    }
+
+    public async getTemplateText(): Promise<string | undefined> {
+        return await this.showTemplateTextInputBox();
+    }
+
+    protected async showTemplateTextInputBox(): Promise<string | undefined> {
+        return await window.showInputBox({
+            prompt: 'Enter the template text',
+            ignoreFocusOut: true,
+        });
+    }
+
+    public async getReplacementText(): Promise<string | undefined> {
+        return await this.showReplacementTextInputBox();
+    }
+
+    protected async showReplacementTextInputBox(): Promise<string | undefined> {
+        return await window.showInputBox({
+            prompt: 'Enter the replacement text',
+            ignoreFocusOut: true,
+        });
     }
 
     public async execute(options: ExecuteOptions): Promise<VsCodeFileItem> {

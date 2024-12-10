@@ -52,47 +52,4 @@ export class VsCodeFileItem implements FileItem<Uri> {
     get isDir(): boolean {
         return this.IsDir;
     }
-
-    // public async move(): Promise<VsCodeFileItem> {
-    //     assertTargetPath(this.targetPath);
-
-    //     const edit = new WorkspaceEdit();
-    //     edit.renameFile(this.path, this.targetPath, { overwrite: true });
-    //     const result = await workspace.applyEdit(edit);
-
-    //     if (!result) {
-    //         throw new Error(`Failed to move file "${this.targetPath.fsPath}."`);
-    //     }
-
-    //     this.SourcePath = this.targetPath;
-    //     return this;
-    // }
-
-    // public async remove(): Promise<VsCodeFileItem> {
-    //     const edit = new WorkspaceEdit();
-    //     edit.deleteFile(this.path, { recursive: true, ignoreIfNotExists: true });
-    //     const result = await workspace.applyEdit(edit);
-
-    //     if (!result) {
-    //         throw new Error(`Failed to delete file "${this.path.fsPath}."`);
-    //     }
-
-    //     return this;
-    // }
-
-    // public async create(mkDir?: boolean): Promise<VsCodeFileItem> {
-    //     assertTargetPath(this.targetPath);
-
-    //     if (await this.exists()) {
-    //         await workspace.fs.delete(this.targetPath, { recursive: true });
-    //     }
-
-    //     if (mkDir === true || this.isDir) {
-    //         await workspace.fs.createDirectory(this.targetPath);
-    //     } else {
-    //         await workspace.fs.writeFile(this.targetPath, new Uint8Array());
-    //     }
-
-    //     return new VsCodeFileItem(this.targetPath, undefined, this.isDir);
-    // }
 }

@@ -5,8 +5,8 @@ import { MoveFileController } from "./move-file.controller";
 
 export class DuplicateFileController extends MoveFileController {
     public async execute(options: ExecuteOptions): Promise<VsCodeFileItem> {
-        const { fileItem } = options;
+        const { fileItem, templateText, replacementText } = options;
         await this.ensureWritableFile(fileItem);
-        return duplicate(fileItem, vsCodeFileItemFactory, this.fs);
+        return duplicate(fileItem, vsCodeFileItemFactory, this.fs, templateText, replacementText, this.shouldOverwrite);
     }
 }

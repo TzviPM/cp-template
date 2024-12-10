@@ -49,6 +49,31 @@
       "type": "object",
       "title": "cp-template",
       "properties": {
+        "cp-template.duplicateFile.typeahead.enabled": {
+          "type": "boolean",
+          "default": false,
+          "description": "Controls whether to show a directory selector for the duplicate file command."
+        },
+        "cp-template.inputBox.pathType": {
+          "type": "string",
+          "default": "root",
+          "enum": [
+            "root",
+            "workspace"
+          ],
+          "enumDescriptions": [
+            "Absolute file path of the opened workspace or folder (e.g. /Users/Development/myWorkspace)",
+            "Relative file path of the opened workspace or folder (e.g. /myWorkspace)"
+          ],
+          "description": "Controls the path that is shown in the input box."
+        },
+        "cp-template.inputBox.pathTypeIndicator": {
+          "type": "string",
+          "default": "@",
+          "maxLength": 50,
+          "description": "Controls the indicator that is shown in the input box when the path type is workspace. This setting only has an effect when 'cp-template.inputBox.pathType' is set to 'workspace'.",
+          "markdownDescription": "Controls the indicator that is shown in the input box when the path type is workspace. \n\nThis setting only has an effect when `#cp-template.inputBox.pathType#` is set to `workspace`.\n\nFor example, if the path type is `workspace` and the indicator is `@`, the path will be shown as `@/myWorkspace`."
+        },
         "cp-template.menus.context.explorer": {
           "type": "array",
           "default": [
