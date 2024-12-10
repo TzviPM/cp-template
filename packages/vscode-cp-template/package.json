@@ -141,7 +141,7 @@
   },
   "dependencies": {
     "fast-glob": "^3.3.2",
-    "@cp-template/core": "workspace:^"
+    "@cp-template/core": "0.0.1"
   },
   "devDependencies": {
     "@types/vscode": "^1.95.0",
