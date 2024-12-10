@@ -4,6 +4,10 @@
   "description": "Make anything into a template like cp on steroids",
   "version": "0.0.1",
   "publisher": "TzviPM",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TzviPM/cp-template"
+  },
   "engines": {
     "vscode": "^1.95.0"
   },

@@ -1,31 +1,23 @@
-# cp-template README
+# cp-template Visual Studio Code Extension
 
-This is the README for your extension "cp-template". After writing up a brief description, we recommend including the following sections.
+A convenient way of duplicating existing files and directories, using them as a template for new code.
 
-## Features
+_Inspired by [File Utils](https://github.com/sleistner/vscode-fileutils)._
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+## How do I use this?
 
-For example if there is an image subfolder under your extension project workspace:
+-   Right click on a file or folder in the Explorer pane or in a file tab.
+-   Select `Duplicate (template)`.
+-   Answer the questions:
+    -   Target path to which the code will be duplicated
+    -   Template string: the code in the source tree that will become templated
+    -   Replacement string: the new value for instantiating the template in the target
 
-\!\[feature X\]\(images/feature-x.png\)
+## What the heck is this thing?
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+Many times, code gets repetitive or a new feature needs to be built which is *almost* identical to some existing code but needs to be modified for a different use case [in which a common abstraction doesn't make sense](https://www.tzvipm.dev/posts/thats-not-dry).
 
-## Requirements
-
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
-
-## Extension Settings
-
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
-
-For example:
-
-This extension contributes the following settings:
-
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
+This is why I invented `cp-template` back in 2016. Simply take some existing code, invoke `Duplicate (template)`, specify the source text to template on and the target replacement, and ba-da-boom ba-da-bing! Enjoy!
 
 ## Known Issues
 
@@ -33,14 +25,6 @@ None
 
 ## Release Notes
 
-### 1.0.0
+### 0.0.1
 
 Initial release of `cp-template`
-
----
-
-## Following extension guidelines
-
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
-
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
