@@ -25,6 +25,10 @@ None
 
 ## Release Notes
 
+### 0.0.2
+
+Adds `templatize` functionality to turn a piece of code into a reusable template
+
 ### 0.0.1
 
 Initial release of `cp-template`

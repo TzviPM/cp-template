@@ -2,7 +2,7 @@
   "name": "vscode-cp-template",
   "displayName": "cp-template",
   "description": "Make anything into a template like cp on steroids",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "publisher": "TzviPM",
   "repository": {
     "type": "git",
