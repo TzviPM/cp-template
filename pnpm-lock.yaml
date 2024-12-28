@@ -17,8 +17,8 @@ importers:
   packages/vscode-cp-template:
     dependencies:
       '@cp-template/core':
-        specifier: 0.0.1
-        version: 0.0.1
+        specifier: 0.0.2
+        version: 0.0.2
       fast-glob:
         specifier: ^3.3.2
         version: 3.3.2
@@ -30,7 +30,7 @@ importers:
         specifier: 22.x
         version: 22.10.2
       '@types/vscode':
-        specifier: ^1.96.0
+        specifier: ^1.95.0
         version: 1.96.0
       '@typescript-eslint/eslint-plugin':
         specifier: ^8.10.0
@@ -45,7 +45,7 @@ importers:
         specifier: ^2.4.1
         version: 2.4.1
       eslint:
-        specifier: ^9.17.0
+        specifier: ^9.13.0
         version: 9.17.0
       typescript:
         specifier: ^5.6.3
@@ -56,8 +56,8 @@ packages:
   '@bcoe/v8-coverage@0.2.3':
     resolution: {integrity: sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==}
 
-  '@cp-template/core@0.0.1':
-    resolution: {integrity: sha512-5H4V9a3M0I/7UA5RbpnXl/bPz3tKcd9dpqhyasBoGI/FpAreBqpfF8LErsB459CxhuugG3XTgBzsG64+9uCcKg==}
+  '@cp-template/core@0.0.2':
+    resolution: {integrity: sha512-Gmgtb/u9wNo3pC0U2w1xHJN2LbHaQaInCP/2e4Qv1kv0UBT2cTQRklX4nC44IsqTVwXR+U5d+N9rudjuvG0sSw==}
 
   '@eslint-community/eslint-utils@4.4.1':
     resolution: {integrity: sha512-s3O3waFUrMV8P/XaF/+ZTp1X9XBZW1a4B97ZnjQF2KYWaFD2A8KyFBsrsfSjEmjn3RGWAIuvlneuZm3CUK3jbA==}
@@ -1014,7 +1014,7 @@ snapshots:
 
   '@bcoe/v8-coverage@0.2.3': {}
 
-  '@cp-template/core@0.0.1': {}
+  '@cp-template/core@0.0.2': {}
 
   '@eslint-community/eslint-utils@4.4.1(eslint@9.17.0)':
     dependencies:
