@@ -1,22 +1,4 @@
-import * as changeCase from "./change-case";
-
-
-type Transformer = (str: string) => string;
-
-const CASE_TRANSFORMERS: Transformer[] = [
-  changeCase.camelCase,
-  changeCase.capitalCase,
-  changeCase.constantCase,
-  changeCase.dotCase,
-  changeCase.kebabCase,
-  changeCase.noCase,
-  changeCase.pascalCase,
-  changeCase.pascalSnakeCase,
-  changeCase.pathCase,
-  changeCase.sentenceCase,
-  changeCase.snakeCase,
-  changeCase.trainCase,
-];
+import { CASE_TRANSFORMERS, type Transformer } from "./transformers";
 
 export class Replacer {
   constructor(private templateText?: string, private replacementText?: string) {}
@@ -26,6 +8,7 @@ export class Replacer {
       return text;
     }
     let result = text;
+    // TODO(tzvipm): replace in parallel
     for (const transformer of CASE_TRANSFORMERS) {
       result = this.replaceWithTransform(result, transformer);
     }

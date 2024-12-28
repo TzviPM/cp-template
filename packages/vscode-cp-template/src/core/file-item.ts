@@ -1,6 +1,6 @@
-import * as path from "path";
+import * as path from "node:path";
 import { Uri } from "vscode";
-import {FileItem, FileItemFactory, FileLocation} from '@cp-template/core';
+import type {FileItem, FileItemFactory, FileLocation} from '@cp-template/core';
 
 class VsCodeLocation implements FileLocation<Uri> {
     constructor(private Loc: Uri) {}
@@ -30,7 +30,7 @@ export class VsCodeFileItem implements FileItem<Uri> {
     private SourceLoc: VsCodeLocation;
     private TargetLoc: VsCodeLocation | undefined;
 
-    constructor(sourcePath: Uri | string, targetPath?: Uri | string, private IsDir: boolean = false) {
+    constructor(sourcePath: Uri | string, targetPath?: Uri | string, private IsDir = false) {
         this.SourceLoc = vsCodeFileItemFactory.toLoc(sourcePath);
         if (targetPath !== undefined) {
             this.TargetLoc = vsCodeFileItemFactory.toLoc(targetPath);

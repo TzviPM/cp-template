@@ -1,5 +1,5 @@
 import glob from "fast-glob";
-import * as path from "path";
+import * as path from "node:path";
 import { workspace } from "vscode";
 
 interface ExtendedProcess {
