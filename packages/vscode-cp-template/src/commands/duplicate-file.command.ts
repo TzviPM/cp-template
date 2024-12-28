@@ -1,6 +1,5 @@
-import { Uri } from "vscode";
-import { getConfiguration } from "../lib/config";
-import { DuplicateFileController } from "../controllers/duplicate-file.controller";
+import type { Uri } from "vscode";
+import type { DuplicateFileController } from "../controllers/duplicate-file.controller";
 import { BaseCommand } from "./base.command";
 
 export class DuplicateFileCommand extends BaseCommand<DuplicateFileController> {

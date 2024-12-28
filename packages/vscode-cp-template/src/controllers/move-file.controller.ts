@@ -1,7 +1,7 @@
-import * as path from "path";
+import * as path from "node:path";
 import { FileType, Uri, window, workspace } from "vscode";
-import { BaseFileController, TargetPathInputBoxValueOptions } from "./base-file.controller";
-import { DialogOptions, ExecuteOptions } from "./controller.interface";
+import { BaseFileController, type TargetPathInputBoxValueOptions } from "./base-file.controller";
+import type { DialogOptions, ExecuteOptions } from "./controller.interface";
 import { vsCodeFileItemFactory, VsCodeFileItem } from "../core/file-item";
 import { move } from "@cp-template/core";
 

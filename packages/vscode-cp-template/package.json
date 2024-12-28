@@ -24,6 +24,11 @@
         "command": "cp-template.duplicateFile",
         "category": "cp-template",
         "title": "Duplicate (template)..."
+      },
+      {
+        "command": "cp-template.templatize",
+        "category": "cp-template",
+        "title": "Templatize..."
       }
     ],
     "menus": {
@@ -32,6 +37,11 @@
           "command": "cp-template.duplicateFile",
           "group": "7_modification",
           "when": "config.cp-template.menus.context.explorer =~ /duplicateFile/"
+        },
+        {
+          "command": "cp-template.templatize",
+          "group": "7_modification",
+          "when": "config.cp-template.menus.context.explorer =~ /templatize/"
         }
       ],
       "editor/context": [
@@ -39,6 +49,11 @@
           "command": "cp-template.duplicateFile",
           "group": "1_modification@3",
           "when": "config.cp-template.menus.context.editor =~ /duplicateFile/ && resourceScheme != output"
+        },
+        {
+          "command": "cp-template.templatize",
+          "group": "1_modification@3",
+          "when": "config.cp-template.menus.context.editor =~ /templatize/ && resourceScheme != output"
         }
       ],
       "editor/title/context": [
@@ -46,6 +61,11 @@
           "command": "cp-template.duplicateFile",
           "group": "1_modification@3",
           "when": "config.cp-template.menus.context.editorTitle =~ /duplicateFile/"
+        },
+        {
+          "command": "cp-template.templatize",
+          "group": "1_modification@3",
+          "when": "config.cp-template.menus.context.editorTitle =~ /templatize/"
         }
       ]
     },
@@ -57,6 +77,11 @@
           "type": "boolean",
           "default": false,
           "description": "Controls whether to show a directory selector for the duplicate file command."
+        },
+        "cp-template.templatize.typeahead.enabled": {
+          "type": "boolean",
+          "default": false,
+          "description": "Controls whether to show a directory selector for the templatize command."
         },
         "cp-template.inputBox.pathType": {
           "type": "string",
@@ -81,15 +106,18 @@
         "cp-template.menus.context.explorer": {
           "type": "array",
           "default": [
-            "duplicateFile"
+            "duplicateFile",
+            "templatize"
           ],
           "items": {
             "type": "string",
             "enum": [
-              "duplicateFile"
+              "duplicateFile",
+              "templatize"
             ],
             "enumDescriptions": [
-              "Duplicate (template)"
+              "Duplicate (template)",
+              "Templatize"
             ]
           },
           "uniqueItems": true,
@@ -99,15 +127,18 @@
         "cp-template.menus.context.editor": {
           "type": "array",
           "default": [
-            "duplicateFile"
+            "duplicateFile",
+            "templatize"
           ],
           "items": {
             "type": "string",
             "enum": [
-              "duplicateFile"
+              "duplicateFile",
+              "templatize"
             ],
             "enumDescriptions": [
-              "Duplicate (template)"
+              "Duplicate (template)",
+              "Templatize"
             ]
           },
           "uniqueItems": true,
@@ -117,15 +148,18 @@
         "cp-template.menus.context.editorTitle": {
           "type": "array",
           "default": [
-            "duplicateFile"
+            "duplicateFile",
+            "templatize"
           ],
           "items": {
             "type": "string",
             "enum": [
-              "duplicateFile"
+              "duplicateFile",
+              "templatize"
             ],
             "enumDescriptions": [
-              "Duplicate (template)"
+              "Duplicate (template)",
+              "Templatize"
             ]
           },
           "uniqueItems": true,
@@ -145,7 +179,7 @@
   },
   "dependencies": {
     "fast-glob": "^3.3.2",
-    "@cp-template/core": "0.0.1"
+    "@cp-template/core": "0.0.2"
   },
   "devDependencies": {
     "@types/vscode": "^1.95.0",

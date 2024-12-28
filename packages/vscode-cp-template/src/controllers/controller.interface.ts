@@ -1,5 +1,5 @@
-import { TextEditor, Uri } from "vscode";
-import { VsCodeFileItem } from "../core/file-item";
+import type { TextEditor, Uri } from "vscode";
+import type { VsCodeFileItem } from "../core/file-item";
 
 export interface DialogOptions {
     prompt?: string;

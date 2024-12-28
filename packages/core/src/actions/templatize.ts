@@ -5,13 +5,13 @@ import {
 } from "../file-item";
 import type { FileSystem } from "../file-system";
 import { Replacer } from "../replacer";
+import { Templatizer } from "../templatizer";
 
-export async function duplicate<TLoc, TFileItem extends FileItem<TLoc>>(
+export async function templatize<TLoc, TFileItem extends FileItem<TLoc>>(
   fileItem: TFileItem,
   factory: FileItemFactory<TLoc, TFileItem>,
   fs: FileSystem<TLoc>,
   templateText?: string,
-  replacementText?: string,
   shouldOverwrite?: (loc: TLoc) => Promise<boolean>
 ): Promise<TFileItem> {
   assertTargetLoc(fileItem.targetLoc);
@@ -22,34 +22,34 @@ export async function duplicate<TLoc, TFileItem extends FileItem<TLoc>>(
   try {
     const dir = fs.parentDir(dest);
     await fs.ensureDirectoryExists(dir);
-    const replacer = new Replacer(templateText, replacementText);
-    await copyTmpl(
+    const templatizer = new Templatizer(templateText);
+    await makeTmpl(
       src,
       dir,
       fs,
       factory,
-      replacer,
+      templatizer,
       shouldOverwrite ?? (async () => false)
     );
     return factory.create(dest, undefined, fileItem.isDir);
   } catch (error) {
     throw new Error(
-      `Failed to duplicate file "${fileItem.targetLoc.path}. (${error})"`
+      `Failed to templatize file "${fileItem.targetLoc.path}. (${error})"`
     );
   }
 }
 
-async function copyTmpl<TLoc>(
+async function makeTmpl<TLoc>(
   src: TLoc,
   targetDir: TLoc,
   fs: FileSystem<TLoc>,
   factory: FileItemFactory<TLoc>,
-  replacer: Replacer,
+  templatizer: Templatizer,
   shouldOverwrite: (loc: TLoc) => Promise<boolean>
 ): Promise<unknown> {
   const stats = await fs.lstat(src);
   const name = fs.basename(src);
-  const targetName = replacer.replace(name);
+  const targetName = `${templatizer.templatize(name)}.hbs`;
   const targetLoc = fs.resolveInDir(targetDir, targetName);
   const targetLocation = factory.toLoc(targetLoc);
   const targetExists = await fs.exists(targetLoc);
@@ -63,12 +63,12 @@ async function copyTmpl<TLoc>(
     const contents = await fs.readDir(src);
     return Promise.all(
       contents.map((srcLoc) => {
-        return copyTmpl(
+        return makeTmpl(
           srcLoc,
           targetLoc,
           fs,
           factory,
-          replacer,
+          templatizer,
           shouldOverwrite
         );
       })
@@ -83,7 +83,7 @@ async function copyTmpl<TLoc>(
 
   if (stats.isFileLike()) {
     const srcContent = await fs.readFile(src);
-    const content = replacer.replace(srcContent);
+    const content = templatizer.templatize(srcContent);
     return fs.writeFile(targetLoc, content);
   }
 

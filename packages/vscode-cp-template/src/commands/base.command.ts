@@ -1,6 +1,6 @@
-import { Uri } from "vscode";
-import { ExecuteOptions, FileController } from "../controllers/controller.interface";
-import { CommandConstructorOptions, Command } from "./command.interface";
+import type { Uri } from "vscode";
+import type { ExecuteOptions, FileController } from "../controllers/controller.interface";
+import type { CommandConstructorOptions, Command } from "./command.interface";
 
 interface ExecuteControllerOptions {
     openFileInEditor?: boolean;
