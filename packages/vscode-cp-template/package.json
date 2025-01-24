@@ -2,14 +2,14 @@
   "name": "vscode-cp-template",
   "displayName": "cp-template",
   "description": "Make anything into a template like cp on steroids",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "publisher": "TzviPM",
   "repository": {
     "type": "git",
     "url": "https://github.com/TzviPM/cp-template"
   },
   "engines": {
-    "vscode": "^1.95.0"
+    "vscode": "^1.93.0"
   },
   "categories": [
     "Other"
@@ -170,7 +170,7 @@
     }
   },
   "scripts": {
-    "vscode:prepublish": "pnpm run compile",
+    "`vscode`:prepublish": "pnpm run compile",
     "compile": "tsc -p ./",
     "watch": "tsc -watch -p ./",
     "pretest": "pnpm run compile && pnpm run lint",
