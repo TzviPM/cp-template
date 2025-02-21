@@ -27,10 +27,10 @@ importers:
         specifier: ^10.0.9
         version: 10.0.9
       '@types/node':
-        specifier: 22.x
-        version: 22.10.2
+        specifier: ^22.13.5
+        version: 22.13.5
       '@types/vscode':
-        specifier: ^1.95.0
+        specifier: ^1.93.0
         version: 1.96.0
       '@typescript-eslint/eslint-plugin':
         specifier: ^8.10.0
@@ -159,8 +159,8 @@ packages:
   '@types/mocha@10.0.9':
     resolution: {integrity: sha512-sicdRoWtYevwxjOHNMPTl3vSfJM6oyW8o1wXeI7uww6b6xHg8eBznQDNSGBCDJmsE8UMxP05JgZRtsKbTqt//Q==}
 
-  '@types/node@22.10.2':
-    resolution: {integrity: sha512-Xxr6BBRCAOQixvonOye19wnzyDiUtTeqldOOmj3CkeblonbccA12PFwlufvRdrpjXxqnmUaeiU5EOA+7s5diUQ==}
+  '@types/node@22.13.5':
+    resolution: {integrity: sha512-+lTU0PxZXn0Dr1NBtC7Y8cR21AJr87dLLU953CWA6pMxxv/UDc7jYAY90upcrie1nRcD6XNG5HOYEDtgW5TxAg==}
 
   '@types/vscode@1.96.0':
     resolution: {integrity: sha512-qvZbSZo+K4ZYmmDuaodMbAa67Pl6VDQzLKFka6rq+3WUTY4Kro7Bwoi0CuZLO/wema0ygcmpwow7zZfPJTs5jg==}
@@ -1113,7 +1113,7 @@ snapshots:
 
   '@types/mocha@10.0.9': {}
 
-  '@types/node@22.10.2':
+  '@types/node@22.13.5':
     dependencies:
       undici-types: 6.20.0
 
